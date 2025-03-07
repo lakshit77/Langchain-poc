@@ -77,11 +77,19 @@ The Streamlit interface provides:
 
 ## Example Questions
 
+### Single Document Questions
 - What are the indications for OPDIVO?
 - What are the common side effects of YERVOY?
 - What is the recommended dosage for TECENTRIQ?
 - What contraindications exist for BRAFTOVI?
 - How should TAFINLAR be administered?
+
+### Cross-Document Questions
+- Compare the mechanism of action between OPDIVO and YERVOY.
+- What are the common adverse reactions shared by TECENTRIQ and PROLEUKIN?
+- How do the dosing recommendations differ between BRAFTOVI and MEKTOVI?
+- Compare the contraindications of TAFINLAR and COTELLIC.
+- What are the similarities and differences in patient monitoring requirements for immune checkpoint inhibitors?
 
 ## Notes
 

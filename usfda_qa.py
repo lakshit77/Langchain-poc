@@ -172,14 +172,8 @@ class USFDADocumentProcessor:
             if source_file and {"file": source_file, "page": page} not in sources:
                 sources.append({"file": source_file, "page": page})
         
-        # Format the answer to include source information at the end
+        # No longer adding sources to the formatted answer
         formatted_answer = answer
-        
-        # Add source information at the end
-        if sources:
-            formatted_answer += "\n\n## Sources\n"
-            for source in sources:
-                formatted_answer += f"- {source['file']}, Page {source['page']}\n"
         
         return {
             "question": question,
@@ -198,6 +192,15 @@ def main():
     print("\nUSFDA Document Question-Answering System")
     print("Type 'exit' to quit\n")
     
+    # Example questions that search across multiple documents
+    print("Example questions that search across multiple documents:")
+    print("1. Compare the mechanism of action between OPDIVO and YERVOY.")
+    print("2. What are the common adverse reactions shared by TECENTRIQ and PROLEUKIN?")
+    print("3. How do the dosing recommendations differ between BRAFTOVI and MEKTOVI?")
+    print("4. Compare the contraindications of TAFINLAR and COTELLIC.")
+    print("5. What are the similarities and differences in patient monitoring requirements for immune checkpoint inhibitors?")
+    print()
+    
     while True:
         question = input("\nEnter your question: ")
         if question.lower() in ["exit", "quit", "q"]:
@@ -208,10 +211,7 @@ def main():
         print("\nAnswer:")
         print(result["answer"])
         
-        print("\nSources:")
-        for source in result["sources"]:
-            print(f"- {source['file']}, Page {source['page']}")
-        
+        # No longer displaying sources separately
         print("\n" + "-"*50)
 
 if __name__ == "__main__":

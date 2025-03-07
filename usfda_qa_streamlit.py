@@ -191,14 +191,8 @@ class USFDADocumentProcessor:
             if source_file and {"file": source_file, "page": page} not in sources:
                 sources.append({"file": source_file, "page": page})
         
-        # Format the answer to include source information at the end
+        # No longer adding sources to the formatted answer
         formatted_answer = answer
-        
-        # Add source information at the end
-        if sources:
-            formatted_answer += "\n\n## Sources\n"
-            for source in sources:
-                formatted_answer += f"- {source['file']}, Page {source['page']}\n"
         
         return {
             "question": question,
@@ -248,10 +242,28 @@ def main():
         "How should TAFINLAR be administered?"
     ]
     
-    # Create columns for example questions
+    # Add cross-document example questions
+    st.subheader("Cross-Document Example Questions")
+    cross_doc_questions = [
+        "Compare the mechanism of action between OPDIVO and YERVOY.",
+        "What are the common adverse reactions shared by TECENTRIQ and PROLEUKIN?",
+        "How do the dosing recommendations differ between BRAFTOVI and MEKTOVI?",
+        "Compare the contraindications of TAFINLAR and COTELLIC.",
+        "What are the similarities and differences in patient monitoring requirements for immune checkpoint inhibitors?"
+    ]
+    
+    # Create columns for regular example questions
+    st.write("Single document questions:")
     cols = st.columns(3)
     for i, question in enumerate(example_questions):
         if cols[i % 3].button(question, key=f"example_{i}"):
+            st.session_state.question = question
+    
+    # Create columns for cross-document example questions
+    st.write("Questions that search across multiple documents:")
+    cols = st.columns(2)
+    for i, question in enumerate(cross_doc_questions):
+        if cols[i % 2].button(question, key=f"cross_doc_{i}"):
             st.session_state.question = question
     
     # Question input
