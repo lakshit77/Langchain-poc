@@ -509,16 +509,16 @@ def main():
         force_reload = True
         st.sidebar.success("Vector store will be regenerated!")
     
-    # Add advanced options
-    st.sidebar.subheader("Advanced Options")
-    st.session_state.k_value = st.sidebar.slider("Number of documents to retrieve (k)", min_value=3, max_value=20, value=10)
-    st.session_state.fetch_k = st.sidebar.slider("Number of documents to fetch before reranking (fetch_k)", min_value=10, max_value=100, value=50)
+    # # Add advanced options
+    # st.sidebar.subheader("Advanced Options")
+    # st.session_state.k_value = st.sidebar.slider("Number of documents to retrieve (k)", min_value=3, max_value=20, value=10)
+    # st.session_state.fetch_k = st.sidebar.slider("Number of documents to fetch before reranking (fetch_k)", min_value=10, max_value=100, value=50)
     
-    # Add verification toggle
-    st.sidebar.subheader("Answer Verification")
-    st.session_state.enable_verification = st.sidebar.checkbox("Enable answer verification and enhancement", value=True, 
-                                                              help="When enabled, the system will automatically verify answers and search for missing information")
-    
+    # # Add verification toggle
+    # st.sidebar.subheader("Answer Verification")
+    # st.session_state.enable_verification = st.sidebar.checkbox("Enable answer verification and enhancement", value=True, 
+    #                                                           help="When enabled, the system will automatically verify answers and search for missing information")
+    st.session_state.enable_verification = True
     # Initialize processor
     processor = USFDADocumentProcessor()
     
@@ -548,8 +548,8 @@ def main():
     cross_doc_questions = [
         "Compare the mechanism of action between OPDIVO and YERVOY.",
         "What are the common adverse reactions shared by TECENTRIQ and PROLEUKIN?",
-        "How do the dosing recommendations differ between BRAFTOVI and MEKTOVI?",
-        "Compare the contraindications of TAFINLAR and COTELLIC.",
+        "create a table for indications of TAFINLAR, MEKTOVI AND BRAFTOVI",
+        "what are the dosage forms of TAFINLAR, MEKTOVI OPDIVO AND BRAFTOVI present as a table",
         "What are the similarities and differences in patient monitoring requirements for immune checkpoint inhibitors?"
     ]
     
