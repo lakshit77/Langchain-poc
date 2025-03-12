@@ -123,8 +123,8 @@ class USFDADocumentProcessor:
         
         # Create retriever
         retriever = self.vector_store.as_retriever(
-            search_type="similarity",
-            search_kwargs={"k": 5}
+            search_type="mmr",
+            search_kwargs={"k": 10, "fetch_k": 50}
         )
         
         # Create custom prompt template
